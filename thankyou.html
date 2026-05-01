@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f9fafe;
+      --card: #ffffff;
+      --text: #222;
+      --muted: #5c6b7a;
+      --primary: #4686f5;
+      --primary2: #315386;
+      --ring: rgba(70, 134, 245, 0.18);
+      --shadow: 0 10px 30px rgba(40, 74, 118, 0.10);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Roboto', sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1000px 500px at 20% 0%, rgba(70, 134, 245, 0.14), transparent 55%),
+        radial-gradient(900px 500px at 90% 10%, rgba(49, 83, 134, 0.12), transparent 60%),
+        var(--bg);
+      display: grid;
+      place-items: center;
+      padding: 28px 18px;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 720px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 34px 34px 28px;
+      border: 1px solid rgba(202, 213, 223, 0.55);
+    }
+
+    .badge {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(70, 134, 245, 0.16), rgba(49, 83, 134, 0.10));
+      border: 1px solid rgba(70, 134, 245, 0.18);
+      box-shadow: 0 0 0 6px var(--ring);
+      margin-bottom: 18px;
+    }
+
+    .badge .material-icons {
+      font-size: 34px;
+      color: var(--primary2);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 1.8rem;
+      letter-spacing: -0.3px;
+      color: var(--primary2);
+    }
+
+    p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 1.05rem;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      user-select: none;
+      transition: transform 0.08s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(90deg, var(--primary), var(--primary2) 80%);
+      box-shadow: 0 10px 22px rgba(70, 134, 245, 0.18);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 14px 26px rgba(70, 134, 245, 0.22);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      color: var(--primary2);
+      background: rgba(70, 134, 245, 0.10);
+      border: 1px solid rgba(70, 134, 245, 0.18);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+      background: rgba(70, 134, 245, 0.14);
+    }
+
+    .footer {
+      margin-top: 18px;
+      font-size: 0.95rem;
+      color: rgba(92, 107, 122, 0.9);
+    }
+
+    @media (max-width: 520px) {
+      .card { padding: 28px 18px 22px; }
+      h1 { font-size: 1.55rem; }
+      p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card" aria-labelledby="title">
+      <div class="badge" aria-hidden="true">
+        <span class="material-icons">check_circle</span>
+      </div>
+      <h1 id="title">Thank you for your response</h1>
+      <p>Your survey has been submitted successfully. We appreciate you taking the time to share your feedback.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="index.html">
+          <span class="material-icons" aria-hidden="true">arrow_back</span>
+          Back to form
+        </a>
+        <button class="btn btn-secondary" type="button" onclick="window.print()">
+          <span class="material-icons" aria-hidden="true">print</span>
+          Print
+        </button>
+      </div>
+      <div class="footer">You can safely close this tab.</div>
+    </section>
+  </main>
+</body>
+</html>
