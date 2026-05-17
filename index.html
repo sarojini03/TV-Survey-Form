@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TV User Survey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts for modern look -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <!-- Material Icons for icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    body {
+      background: #f9fafe;
+      font-family: 'Roboto', sans-serif;
+      color: #222;
+      margin: 0;
+    }
+    h1 {
+      text-align: center;
+      font-weight: 700;
+      margin: 40px 0 20px 0;
+      color: #284a76;
+    }
+    form {
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+      padding: 20px;
+    }
+    .section-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 18px rgba(40, 74, 118, 0.07);
+      margin-bottom: 28px;
+      padding: 28px 30px 24px 30px;
+    }
+    .section-header {
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: #315386;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .question-group {
+      margin-bottom: 18px;
+    }
+    label {
+      font-weight: 500;
+      margin-bottom: 7px;
+      display: block;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: 7px;
+      border: 1px solid #cad5df;
+      background: #f4f7fa;
+      font-size: 1rem;
+      margin-bottom: 5px;
+      transition: border 0.2s;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border: 1.5px solid #4686f5;
+    }
+    .rating-group {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+    .radio-row, .checkbox-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 3px;
+    }
+    .rating-stars input[type="radio"] {
+      display: none;
+    }
+    .rating-stars label {
+      color: #b9b9b9;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .rating-stars input[type="radio"]:checked ~ label,
+    .rating-stars label:hover,
+    .rating-stars label:hover ~ label {
+      color: #ffd500;
+    }
+    button[type=submit] {
+      background: linear-gradient(90deg, #4686f5, #315386 80%);
+      color: #fff;
+      padding: 14px 36px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.14rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin: 0 auto;
+      display: block;
+      margin-top: 18px;
+      transition: background 0.20s;
+    }
+    button[type=submit]:hover {
+      background: linear-gradient(90deg, #315386, #4686f5 80%);
+      box-shadow: 0 4px 15px rgba(70,134,245,0.09);
+    }
+    @media (max-width: 650px) {
+      .section-card {
+        padding: 18px 8px 14px 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1><span class="material-icons" style="vertical-align:middle; font-size:2.1rem; color:#4686f5;">tv</span> Television User Survey</h1>
+  <form id="tvSurveyForm" novalidate>
+    <!-- 1. Basic Info -->
+    <div class="section-card">
+      <div class="section-header">
+        <span class="material-icons">person</span> Basic Information
+      </div>
+      <div class="question-group">
+        <label for="tvType">1. TV Type</label>
+        <select id="tvType" name="tvType" required>
+          <option value="" disabled selected>Select TV type</option>
+          <option>LED</option>
+          <option>OLED</option>
+          <option>QLED</option>
+          <option>Smart TV</option>
+        </select>
+      </div>
+      <div class="question-group">
+        <label for="brand">2. Brand</label>
+        <input type="text" id="brand" name="brand" placeholder="e.g., Samsung, Sony, LG" required>
+      </div>
+      <div class="question-group">
+        <label for="screenSize">3. Screen Size (inches)</label>
+        <input type="number" id="screenSize" name="screenSize" min="10" max="120" placeholder="e.g., 55" required>
+      </div>
+      <div class="question-group">
+        <label for="yearsOfUsage">4. Years of Usage</label>
+        <input type="number" id="yearsOfUsage" name="yearsOfUsage" min="0" max="20" placeholder="e.g., 3" required>
+      </div>
+      <div class="question-group">
+        <label for="hoursPerDay">5. Daily Usage (hours)</label>
+        <input type="number" id="hoursPerDay" name="hoursPerDay" min="0" max="24" placeholder="e.g., 5" required>
+      </div>
+    </div>
+    <!-- 2. Viewing Habits -->
+    <div class="section-card">
+      <div class="section-header">
+        <span class="material-icons">visibility</span> Viewing Habits
+      </div>
+      <div class="question-group">
+        <label>6. What kind of content do you mostly watch?</label>
+        <div class="checkbox-row">
+          <label><input type="checkbox" name="contentType" value="Movies"> Movies</label>
+          <label><input type="checkbox" name="contentType" value="TV Shows"> TV Shows</label>
+          <label><input type="checkbox" name="contentType" value="YouTube"> YouTube</label>
+          <label><input type="checkbox" name="contentType" value="Gaming"> Gaming</label>
+        </div>
+      </div>
+      <div class="question-group">
+        <label>7. Do you use OTT apps (Netflix, Prime Video, etc.)?</label>
+        <div class="radio-row">
+          <label><input type="radio" name="ottUsage" value="Yes" required> Yes</label>
+          <label><input type="radio" name="ottUsage" value="No"> No</label>
+        </div>
+      </div>
+      <div class="question-group">
+        <label>8. Preferred Resolution</label>
+        <div class="radio-row">
+          <label><input type="radio" name="resolution" value="HD" required> HD (720p/1080p)</label>
+          <label><input type="radio" name="resolution" value="4K"> 4K</label>
+        </div>
+      </div>
+    </div>
+    <!-- 3. Performance -->
+    <div class="section-card">
+      <div class="section-header">
+        <span class="material-icons">assessment</span> Performance
+      </div>
+      <div class="question-group">
+        <label>9. Picture Quality</label>
+        <div class="rating-group rating-stars">
+          <input type="radio" id="pic5" name="pictureQuality" value="5" required><label for="pic5">&#9733;</label>
+          <input type="radio" id="pic4" name="pictureQuality" value="4"><label for="pic4">&#9733;</label>
+          <input type="radio" id="pic3" name="pictureQuality" value="3"><label for="pic3">&#9733;</label>
+          <input type="radio" id="pic2" name="pictureQuality" value="2"><label for="pic2">&#9733;</label>
+          <input type="radio" id="pic1" name="pictureQuality" value="1"><label for="pic1">&#9733;</label>
+        </div>
+      </div>
+      <div class="question-group">
+        <label>10. Sound Quality</label>
+        <div class="rating-group rating-stars">
+          <input type="radio" id="sound5" name="soundQuality" value="5" required><label for="sound5">&#9733;</label>
+          <input type="radio" id="sound4" name="soundQuality" value="4"><label for="sound4">&#9733;</label>
+          <input type="radio" id="sound3" name="soundQuality" value="3"><label for="sound3">&#9733;</label>
+          <input type="radio" id="sound2" name="soundQuality" value="2"><label for="sound2">&#9733;</label>
+          <input type="radio" id="sound1" name="soundQuality" value="1"><label for="sound1">&#9733;</label>
+        </div>
+      </div>
+      <div class="question-group">
+        <label>11. Satisfaction with Color Accuracy</label>
+        <div class="radio-row">
+          <label><input type="radio" name="colorAccuracy" value="Very Satisfied" required> Very Satisfied</label>
+          <label><input type="radio" name="colorAccuracy" value="Satisfied"> Satisfied</label>
+          <label><input type="radio" name="colorAccuracy" value="Neutral"> Neutral</label>
+          <label><input type="radio" name="colorAccuracy" value="Dissatisfied"> Dissatisfied</label>
+          <label><input type="radio" name="colorAccuracy" value="Very Dissatisfied"> Very Dissatisfied</label>
+        </div>
+      </div>
+      <div class="question-group">
+        <label>12. Satisfaction with Brightness Levels</label>
+        <div class="radio-row">
+          <label><input type="radio" name="brightnessLevel" value="Very Satisfied" required> Very Satisfied</label>
+          <label><input type="radio" name="brightnessLevel" value="Satisfied"> Satisfied</label>
+          <label><input type="radio" name="brightnessLevel" value="Neutral"> Neutral</label>
+          <label><input type="radio" name="brightnessLevel" value="Dissatisfied"> Dissatisfied</label>
+          <label><input type="radio" name="brightnessLevel" value="Very Dissatisfied"> Very Dissatisfied</label>
+        </div>
+      </div>
+    </div>
+    <!-- 4. Smart Features -->
+    <div class="section-card">
+      <div class="section-header">
+        <span class="material-icons">smart_display</span> Smart Features
+      </div>
+      <div class="question-group">
+        <label>13. App Performance (Speed, Stability)</label>
+        <div class="radio-row">
+          <label><input type="radio" name="appPerformance" value="Excellent" required> Excellent</label>
+          <label><input type="radio" name="appPerformance" value="Good"> Good</label>
+          <label><input type="radio" name="appPerformance" value="Average"> Average</label>
+          <label><input type="radio" name="appPerformance" value="Poor"> Poor</label>
+        </div>
+      </div>
+      <div class="question-group">
+        <label>14. Remote Usability</label>
+        <div class="radio-row">
+          <label><input type="radio" name="remoteUsability" value="Very Easy" required> Very Easy</label>
+          <label><input type="radio" name="remoteUsability" value="Easy"> Easy</label>
+          <label><input type="radio" name="remoteUsability" value="Neutral"> Neutral</label>
+          <label><input type="radio" name="remoteUsability" value="Difficult"> Difficult</label>
+        </div>
+      </div>
+      <div class="question-group">
+        <label>15. Do you use voice control features?</label>
+        <div class="radio-row">
+          <label><input type="radio" name="voiceControl" value="Often" required> Often</label>
+          <label><input type="radio" name="voiceControl" value="Sometimes"> Sometimes</label>
+          <label><input type="radio" name="voiceControl" value="Rarely"> Rarely</label>
+          <label><input type="radio" name="voiceControl" value="Never"> Never</label>
+        </div>
+      </div>
+      <div class="question-group">
+        <label>16. Available Connectivity Options</label>
+        <div class="checkbox-row">
+          <label><input type="checkbox" name="connectivity" value="WiFi"> WiFi</label>
+          <label><input type="checkbox" name="connectivity" value="Bluetooth"> Bluetooth</label>
+          <label><input type="checkbox" name="connectivity" value="Ethernet"> Ethernet</label>
+          <label><input type="checkbox" name="connectivity" value="None"> None</label>
+        </div>
+      </div>
+    </div>
+    <!-- 5. Issues -->
+    <div class="section-card">
+      <div class="section-header">
+        <span class="material-icons">report_problem</span> Issues
+      </div>
+      <div class="question-group">
+        <label>17. Have you experienced lagging or freezing?</label>
+        <div class="radio-row">
+          <label><input type="radio" name="lagging" value="Often" required> Often</label>
+          <label><input type="radio" name="lagging" value="Sometimes"> Sometimes</label>
+          <label><input type="radio" name="lagging" value="Rarely"> Rarely</label>
+          <label><input type="radio" name="lagging" value="Never"> Never</label>
+        </div>
+      </div>
+      <div class="question-group">
+        <label>18. Are you satisfied with software updates?</label>
+        <div class="radio-row">
+          <label><input type="radio" name="softwareUpdates" value="Very Satisfied" required> Very Satisfied</label>
+          <label><input type="radio" name="softwareUpdates" value="Satisfied"> Satisfied</label>
+          <label><input type="radio" name="softwareUpdates" value="Neutral"> Neutral</label>
+          <label><input type="radio" name="softwareUpdates" value="Dissatisfied"> Dissatisfied</label>
+        </div>
+      </div>
+      <div class="question-group">
+        <label>19. Has your TV required repairs?</label>
+        <div class="radio-row">
+          <label><input type="radio" name="repairHistory" value="No Repairs" required> No</label>
+          <label><input type="radio" name="repairHistory" value="Once"> Once</label>
+          <label><input type="radio" name="repairHistory" value="Multiple"> Multiple times</label>
+        </div>
+      </div>
+      <div class="question-group">
+        <label for="issueDescription">20. If yes, briefly describe the issue(s):</label>
+        <textarea id="issueDescription" name="issueDescription" rows="2" placeholder="(Optional)"></textarea>
+      </div>
+    </div>
+    <!-- 6. Feedback -->
+    <div class="section-card">
+      <div class="section-header">
+        <span class="material-icons">feedback</span> Your Feedback
+      </div>
+      <div class="question-group">
+        <label>21. Overall Satisfaction Rating</label>
+        <div class="rating-group rating-stars">
+          <input type="radio" id="overall5" name="overallRating" value="5" required><label for="overall5">&#9733;</label>
+          <input type="radio" id="overall4" name="overallRating" value="4"><label for="overall4">&#9733;</label>
+          <input type="radio" id="overall3" name="overallRating" value="3"><label for="overall3">&#9733;</label>
+          <input type="radio" id="overall2" name="overallRating" value="2"><label for="overall2">&#9733;</label>
+          <input type="radio" id="overall1" name="overallRating" value="1"><label for="overall1">&#9733;</label>
+        </div>
+      </div>
+      <div class="question-group">
+        <label>22. Would you recommend this TV to others?</label>
+        <div class="radio-row">
+          <label><input type="radio" name="recommend" value="Yes" required> Yes</label>
+          <label><input type="radio" name="recommend" value="No"> No</label>
+          <label><input type="radio" name="recommend" value="Not Sure"> Not Sure</label>
+        </div>
+      </div>
+      <div class="question-group">
+        <label for="improvements">23. What improvements would you like to see?</label>
+        <textarea id="improvements" name="improvements" rows="2" placeholder="Improvements needed..."></textarea>
+      </div>
+      <div class="question-group">
+        <label for="favFeature">24. What is your favorite feature of your TV?</label>
+        <input type="text" id="favFeature" name="favFeature" placeholder="e.g., Picture quality, Apps, Sound, etc.">
+      </div>
+      <div class="question-group">
+        <label for="additionalFeedback">25. Any additional feedback or comments?</label>
+        <textarea id="additionalFeedback" name="additionalFeedback" rows="2" placeholder="(Optional)"></textarea>
+      </div>
+    </div>
+    <button type="submit">
+      <span class="material-icons" style="vertical-align:bottom; font-size:1.22em; margin-right:5px;">send</span>
+      Submit Survey
+    </button>
+  </form>
+
+  <script>
+    (function () {
+      const form = document.getElementById('tvSurveyForm');
+      if (!form) return;
+
+      form.addEventListener('submit', function (e) {
+        // Preserve browser validation UI while still redirecting ourselves.
+        if (!form.checkValidity()) {
+          e.preventDefault();
+          form.reportValidity();
+          return;
+        }
+
+        e.preventDefault();
+        window.location.href = 'thankyou.html';
+      });
+    })();
+  </script>
+
+<script type="module">
+
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+  
+  import {
+    getFirestore,
+    collection,
+    addDoc
+  } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
+  
+  
+  const firebaseConfig = {
+    apiKey: "AIzaSyBnsSambb3uDBaPJ6HtzT7VRsJripHVXPE",
+    authDomain: "tv-survey-form.firebaseapp.com",
+    projectId: "tv-survey-form",
+    storageBucket: "tv-survey-form.firebasestorage.app",
+    messagingSenderId: "1063606147518",
+    appId: "1:1063606147518:web:265606da9e694233dc41ef"
+  };
+  
+  
+  const app = initializeApp(firebaseConfig);
+  
+  const db = getFirestore(app);
+  
+  
+  const form = document.getElementById("tvSurveyForm");
+  
+  
+  form.addEventListener("submit", async (e) => {
+  
+    e.preventDefault();
+  
+    try {
+  
+      await addDoc(collection(db, "responses"), {
+  
+        tvType: document.getElementById("tvType").value,
+  
+        brand: document.getElementById("brand").value,
+  
+        screenSize: document.getElementById("screenSize").value,
+  
+        yearsOfUsage: document.getElementById("yearsOfUsage").value,
+  
+        hoursPerDay: document.getElementById("hoursPerDay").value,
+  
+        issueDescription: document.getElementById("issueDescription").value,
+  
+        improvements: document.getElementById("improvements").value,
+  
+        favFeature: document.getElementById("favFeature").value,
+  
+        additionalFeedback: document.getElementById("additionalFeedback").value,
+  
+        createdAt: new Date()
+  
+      });
+  
+      alert("Survey Submitted Successfully");
+      form.reset();
+      setTimeout(() => {
+        window.location.href = 
+      "thankyou.html";
+      }, 1500);
+
+  
+    } catch (error) {
+  
+      console.log(error);
+  
+      alert("Error saving data");
+  
+    }
+  
+  });
+  
+  </script>
+
+</body>
+</html>
